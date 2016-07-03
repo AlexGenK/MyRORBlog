@@ -1,0 +1,8 @@
+<h1>All articles</h1>
+<br>
+<% @articles.each do |item| %>
+	<hr>
+	<h3><%= item.title %> </h3>
+	<small>posted at <%= item.updated_at %></small>
+	<p><%= item.text %></p>
+<% end %>

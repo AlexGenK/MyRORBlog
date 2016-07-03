@@ -3,6 +3,10 @@ class ArticlesController < ApplicationController
 	def new
 	end
 
+  def index
+    @articles=Article.order(:updated_at)
+  end
+
  	def create
     # render plain: params[:article].inspect
     @article=Article.new(article_params)
