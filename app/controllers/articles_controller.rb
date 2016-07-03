@@ -12,13 +12,16 @@ class ArticlesController < ApplicationController
   end
 
  	def create
-    # render plain: params[:article].inspect
     @article=Article.new(article_params)
     if @article.valid?
       @article.save
     else
       render action: 'new' 
     end
+  end
+
+  def edit
+    @article=Article.find(params[:id].to_i)
   end
 
   def article_params
