@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
     @articles=Article.order(:updated_at)
   end
 
+  def show
+    @article=Article.find(params[:id].to_i)
+  end
+
  	def create
     # render plain: params[:article].inspect
     @article=Article.new(article_params)
