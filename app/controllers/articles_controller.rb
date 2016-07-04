@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
     @article=Article.new(article_params)
     if @article.valid?
       @article.save
+      redirect_to @article
     else
       render action: 'new' 
     end
@@ -26,7 +27,9 @@ class ArticlesController < ApplicationController
 
   def update
     @article=Article.find(params[:id].to_i)
-    unless @article.update_attributes(article_params)
+    if @article.update_attributes(article_params)
+      redirect_to @article
+    else
       render action: 'edit'
     end
   end
