@@ -1,7 +1,8 @@
 <h1>All articles</h1>
 <% @articles.each do |item| %>
 	<hr>
-	<h2><%= item.title %></h2>
+	<h2><%= link_to item.title, article_path(item) %></h2>
 	<small>posted at <%= item.created_at %> / updated at <%= item.updated_at %></small>
 	<p><%= item.text %></p>
+	<small><%= link_to "Edit >>>", edit_article_path(item) %></small>
 <% end %>
