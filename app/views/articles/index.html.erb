@@ -1,7 +1,7 @@
 <h1>All articles</h1>
 <% @articles.each do |item| %>
 	<hr>
-	<h3><%= item.title %> </h3>
-	<small>posted at <%= item.updated_at %></small>
+	<h2><%= item.title %></h2>
+	<small>posted at <%= item.created_at %> / updated at <%= item.updated_at %></small>
 	<p><%= item.text %></p>
 <% end %>

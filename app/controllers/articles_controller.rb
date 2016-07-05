@@ -4,11 +4,11 @@ class ArticlesController < ApplicationController
 	end
 
   def index
-    @articles=Article.order(:updated_at)
+    @articles=Article.order(:updated_at).reverse
   end
 
   def show
-    @article=Article.find(params[:id].to_i)
+    @article=Article.find(params[:id])
   end
 
  	def create
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article=Article.find(params[:id].to_i)
+    @article=Article.find(params[:id])
   end
 
   def update
