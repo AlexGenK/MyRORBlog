@@ -1,3 +1,4 @@
+# отправка сообщений
 class ContactsController < ApplicationController
 
 	def new
@@ -5,6 +6,8 @@ class ContactsController < ApplicationController
 
 	def create
     @contact=Contact.new(contact_params)
+
+    # если новое сообщение валидно, оно записывается, иначе снова вызывается форма ввода
     if @contact.valid?
       @contact.save
     else
@@ -14,6 +17,7 @@ class ContactsController < ApplicationController
 
   private
 
+  # разрешение передачи параметров
   def contact_params
     params.require(:contact).permit(:email, :message)
   end

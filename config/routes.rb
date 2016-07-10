@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
+  # пути к одностраничным сущностям
   get 'terms'=>'single_pages#terms'
-
   get 'about'=>'single_pages#about'
 
   get 'home/index'
 
+  # по ссылке contacts выполняем создание нового сообщения а не просмотр
   get 'contacts'=>'contacts#new'
   
+  # для сообщений реализуем только экшены new и create т.к. все остальное нам  не нужно
   resource :contacts, only: [:new, :create]
+
+  # для статей реализуем полностью модель REST
   resources :articles
 
   # The priority is based upon order of creation: first created -> highest priority.

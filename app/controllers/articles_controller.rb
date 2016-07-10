@@ -1,3 +1,4 @@
+# статьи в блоге
 class ArticlesController < ApplicationController
 
 	def new
@@ -13,6 +14,8 @@ class ArticlesController < ApplicationController
 
  	def create
     @article=Article.new(article_params)
+
+    # если статью удается записать, то выводится записанная статья, иначе - снова форма создания статьи
     if @article.save
       redirect_to @article
     else
@@ -26,6 +29,8 @@ class ArticlesController < ApplicationController
 
   def update
     @article=Article.find(params[:id])
+
+    # если статью удается записать, то выводится записанная статья, иначе - снова форма редактирования статьи
     if @article.update(article_params)
       redirect_to @article
     else
