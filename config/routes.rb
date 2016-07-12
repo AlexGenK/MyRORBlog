@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   # для сообщений реализуем только экшены new и create т.к. все остальное нам  не нужно
   resource :contacts, only: [:new, :create]
 
-  # для статей реализуем полностью модель REST
-  resources :articles
+  # для статей и комментариев реализуем полностью модель REST, при этом
+  # маршрут к комментариям - вложенный
+  resources :articles do
+    resources :comments
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
