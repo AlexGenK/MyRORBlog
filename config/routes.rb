@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # для статей и комментариев реализуем полностью модель REST, при этом
   # маршрут к комментариям - вложенный
   resources :articles do
-    resources :comments
+    resources :comments, only: [:create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
