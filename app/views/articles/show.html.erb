@@ -1,4 +1,4 @@
-<!-- вывод одной статьи -->
+<!-- вывод одной статьи и ввод комментариев к ней-->
 <h1>Article #<%= @article.id %></h1>
 <hr>
 <h2><%= @article.title %> </h2>
@@ -9,6 +9,7 @@
 <small><%= link_to "Show all articles", articles_path %></small>
 <h3>Add comment:</h3>
 
+<!-- форма ввода комментариев -->
 <%= form_for [@article, @article.comments.build] do |f| %>
 
 	<p>

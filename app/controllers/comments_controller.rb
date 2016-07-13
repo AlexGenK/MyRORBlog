@@ -1,3 +1,4 @@
+# комментарии к статьям в блоге
 class CommentsController < ApplicationController
 
 	def create
