@@ -7,9 +7,19 @@
 
 <!-- ссылка на вывод списка статей -->
 <small><%= link_to "Show all articles", articles_path %></small>
-<h3>Add comment:</h3>
+<hr>
+
+<!-- список комментариев -->
+<h3>Comments:</h3>
+<% @comments.each do |item| %>
+	<strong><%= item.created_at%> <%= item.author %> wrote:<br></strong>
+	<%= item.body %><br>
+	<br>
+<% end %>
+<hr>
 
 <!-- форма ввода комментариев -->
+<h3>Add comment:</h3>
 <%= form_for [@article, @article.comments.build] do |f| %>
 
 	<p>
