@@ -1,6 +1,8 @@
 # комментарии к статьям в блоге
 class CommentsController < ApplicationController
 
+	# реализовано только создание комментариев
+	# вывод комментариев происходит в виде вывода статьи
 	def create
 		@article=Article.find(params[:article_id])
 		@article.comments.create(comment_params)
