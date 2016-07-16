@@ -3,6 +3,17 @@
 
 <%= form_for :article, url: articles_path do |f| %>
 
+	<!-- вывод списка ошибок верификации -->
+	<% if @article %>
+		<i>
+		<ul>
+		<% @article.errors.full_messages.each do |item| %>
+			<li><%= item+'!' %></li>
+		<% end %>
+		</ul>
+		</i>
+	<% end %>
+
 	<p>
 		<%= f.label :title %><br>
 		<%= f.text_field :title %>
