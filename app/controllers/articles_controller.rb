@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article=Article.find(params[:id])
-    @comments=@article.comments
+    @comments=@article.comments.order(:created_at).reverse
   end
 
  	def create
