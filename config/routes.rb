@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
+  root 'articles#index'
+
   # пути к одностраничным сущностям
   get 'terms'=>'single_pages#terms'
   get 'about'=>'single_pages#about'
-
-  get 'home/index'
 
   # по ссылке contacts выполняем создание нового сообщения а не просмотр
   get 'contacts'=>'contacts#new'
