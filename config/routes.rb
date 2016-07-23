@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # основной путь к сайту
   root 'articles#index'
 
   # пути к одностраничным сущностям
