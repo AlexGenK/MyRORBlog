@@ -9,13 +9,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
+<br>
 <!-- навигационная панель -->
 <nav>
-<a href='/articles'>Articles</a> |
-<a href='/contacts'>Contacts</a> |
-<a href='/about'>About us</a> |
-<a href='/terms'>Terms of use</a>
+	<a href='/articles'>Articles</a> |
+	<a href='/contacts'>Contacts</a> |
+	<a href='/about'>About us</a> |
+	<a href='/terms'>Terms of use</a>
 </nav>
+<% if notice %>
+	<p class="notice"><%= notice %></p>
+<% end %>
+<% if alert %>
+	<p class="alert"><%= alert %></p>
+<% end %>
 <hr>
 <%= yield %>
 </body>

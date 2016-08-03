@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # основной путь к сайту
   root 'articles#index'
 
