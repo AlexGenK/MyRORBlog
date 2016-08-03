@@ -6,7 +6,7 @@
 <% @articles.each do |item| %>
 	<hr>
 	<h2><%= link_to item.title, article_path(item) %></h2>
-	<small>posted at <%= item.created_at %> / updated at <%= item.updated_at %></small>
+	<small>posted at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
 	<p><%= item.text %></p>
 
 	<!-- ссылки на редактирование и удаление (с подтверждением) -->
