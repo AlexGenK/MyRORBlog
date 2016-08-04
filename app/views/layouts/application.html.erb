@@ -27,10 +27,16 @@
 	<a href='/contacts'>Contacts</a> |
 	<a href='/about'>About us</a> |
 	<a href='/terms'>Terms of use</a> |
-	<a href='/users/sign_in'>Log In</a> |
-	<a href='/users/sign_out' data-method="delete">Log Out</a> |
+  <!-- если пользователь вошел в систему, и если нет -->
+  <% if user_signed_in? %>
+	 <span>Hello, <%= current_user.email %>! |</span>
+	 <a href='/users/sign_out' data-method="delete">Log Out</a> |
+  <% else %>
+    <a href='/users/sign_in'>Log In</a> |
+  <% end %>
 </nav>
 <% if notice %>
+  <br>
 	<p class="notice"><%= notice %></p>
 <% end %>
 <% if alert %>
