@@ -29,10 +29,10 @@
 	<a href='/terms'>Terms of use</a> |
   <!-- если пользователь вошел в систему, и если нет -->
   <% if user_signed_in? %>
-	 <span>Hello, <%= current_user.email %>! |</span>
-	 <a href='/users/sign_out' data-method="delete">Log Out</a> |
+	  <span>Hello, <%= current_user.email %>! |</span>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete %> |
   <% else %>
-    <a href='/users/sign_in'>Log In</a> |
+    <%= link_to "Log In", new_user_session_path %> |
   <% end %>
 </nav>
 <% if notice %>
