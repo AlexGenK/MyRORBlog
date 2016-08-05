@@ -1,7 +1,7 @@
 # статьи в блоге
 class ArticlesController < ApplicationController
 
-  # за исколючением просмотра, все остальные действия требуют аутентификации пользователя
+  # за исключением просмотра, все остальные действия требуют аутентификации пользователя
   before_filter :authenticate_user!, :except => [:show, :index]
 
 	def new

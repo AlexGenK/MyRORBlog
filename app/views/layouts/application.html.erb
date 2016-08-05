@@ -27,14 +27,16 @@
 	<a href='/contacts'>Contacts</a> |
 	<a href='/about'>About us</a> |
 	<a href='/terms'>Terms of use</a> |
-  <!-- если пользователь вошел в систему, и если нет -->
+  <!-- если пользователь вошел в систему -->
   <% if user_signed_in? %>
 	  <span>Hello, <%= current_user.email %>! |</span>
     <%= link_to "Log Out", destroy_user_session_path, method: :delete %> |
+  <!-- и если не вошел -->
   <% else %>
     <%= link_to "Log In", new_user_session_path %> |
   <% end %>
 </nav>
+<!-- поддержка сообщений -->
 <% if notice %>
   <br>
 	<p class="notice"><%= notice %></p>
