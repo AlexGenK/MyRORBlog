@@ -25,7 +25,7 @@
 
 	<p>
 		<%= f.label :author %><br>
-		<%= f.text_field :author %>
+		<%= f.text_field :author, :value => current_user.username, :readonly => true %>
 	</p>
 
 	<p>
