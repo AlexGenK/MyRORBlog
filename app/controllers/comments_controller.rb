@@ -1,6 +1,8 @@
 # комментарии к статьям в блоге
 class CommentsController < ApplicationController
 
+  before_filter :authenticate_user!
+
 	# реализовано только создание комментариев
 	# вывод комментариев происходит в виде вывода статьи
 	def create
@@ -11,10 +13,10 @@ class CommentsController < ApplicationController
 
 	private
 
-  	# разрешение передачи параметров
-  	def comment_params
-    	params.require(:comment).permit(:author, :body)
-  	end
+	# разрешение передачи параметров
+	def comment_params
+  	params.require(:comment).permit(:author, :body)
+	end
 
 
 end
