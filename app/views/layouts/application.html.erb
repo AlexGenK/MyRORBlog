@@ -23,42 +23,55 @@
 <div class="container">
   <!-- навигационная панель -->
   <div class="row">
-    <div class="col-xs-12">
-      <br>
-      <nav>
-      	<a href='/articles'>Articles</a> |
+      <nav class="col-xs-8">
+        <br>
+        <a href='/articles'>Articles</a> |
       	<a href='/contacts'>Contacts</a> |
       	<a href='/about'>About us</a> |
-      	<a href='/terms'>Terms of use</a> |
+      	<a href='/terms'>Terms of use</a>
+      </nav> <!-- col -->
+      <nav class="col-xs-4 text-right">
+        <br>
         <!-- если пользователь вошел в систему -->
         <% if user_signed_in? %>
-      	  <span>Hello, <%= current_user.username %>! |</span>
-          <%= link_to "Log Out", destroy_user_session_path, method: :delete %> |
+          <span>Hello, <%= current_user.username %>! |</span>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
         <!-- и если не вошел -->
         <% else %>
-          <%= link_to "Log In", new_user_session_path %> |
+          <%= link_to "Log In", new_user_session_path %>
         <% end %>
-      </nav>
-    </div> <!-- col -->
+      </nav> <!-- col -->
   </div> <!-- row -->
+  <div class="row">
+    <div class="col-xs-12">
+      <hr>
+    </div>
+  </div>
   <!-- поддержка сообщений -->
   <% if notice %>
     <div class="row">
       <div class="col-xs-12">
-        <p class="notice"><%= notice %></p>
+        <div class="alert alert-info fade in">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          <span class="glyphicon glyphicon-info-sign"></span>
+          <%= notice %>
+        </div>
       </div> <!-- col -->
     </div> <!-- row -->
   <% end %>
   <% if alert %>
     <div class="row">
       <div class="col-xs-12">
-        <p class="alert"><%= alert %></p>
+        <div class="alert alert-warning fade in">
+          <a href="#" class="close" data-dismiss="alert">&times;</a>
+          <span class="glyphicon glyphicon-exclamation-sign"></span>
+          <%= alert %>
+        </div>
       </div> <!-- col -->
     </div> <!-- row -->
   <% end %>
   <div class="row">
     <div class="col-xs-12">
-      <hr>
       <%= yield %>
     </div> <!-- col -->
   </div> <!-- row -->
