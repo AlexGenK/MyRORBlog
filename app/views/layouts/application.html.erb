@@ -46,8 +46,9 @@
     <div class="col-xs-12">
       <hr>
     </div>
-  </div>
-  <!-- поддержка сообщений -->
+  </div> <!-- row -->
+
+  <!-- сообщения и предупреждения -->
   <% if notice %>
     <div class="row">
       <div class="col-xs-12">
@@ -70,12 +71,15 @@
       </div> <!-- col -->
     </div> <!-- row -->
   <% end %>
+
+  <!-- вывод постов -->
   <div class="row">
     <div class="col-xs-12">
       <%= yield %>
     </div> <!-- col -->
   </div> <!-- row -->
 </div> <!-- container -->
+
 <!-- подключаем jquery и bootstrap -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
