@@ -4,11 +4,13 @@
 <!-- ссылка на создание новой статьи -->
 <%= link_to ">>> Create new Article <<<", new_article_path %>
 <% @articles.each do |item| %>
-	<hr>
-	<h2><%= link_to item.title, article_path(item) %></h2>
-	<small>posted at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
-	<p><%= item.text %></p>
+	<article>
+		<hr>
+		<h2><%= link_to item.title, article_path(item) %></h2>
+		<small>posted at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
+		<p><%= item.text %></p>
 
-	<!-- ссылки на редактирование и удаление (с подтверждением) -->
-	<small><%= link_to ">>> Edit", edit_article_path(item) %> | <%= link_to "Delete <<<", article_path(item), method: :delete, data: {confirm: "Are you shure?"} %></small>
+		<!-- ссылки на редактирование и удаление (с подтверждением) -->
+		<small><%= link_to ">>> Edit", edit_article_path(item) %> | <%= link_to "Delete <<<", article_path(item), method: :delete, data: {confirm: "Are you shure?"} %></small>
+	</article>	
 <% end %>
