@@ -8,7 +8,7 @@
 		<hr>
 		<h2><%= link_to item.title, article_path(item) %></h2>
 		<small>posted at <%= item.created_at %> <% if item.created_at!=item.updated_at %>/ updated at <%= item.updated_at %><% end %></small>
-		<p><%= item.text %></p>
+		<p><%= simple_format(item.text) %></p>
 
 		<!-- ссылки на редактирование и удаление (с подтверждением) -->
 		<small><%= link_to ">>> Edit", edit_article_path(item) %> | <%= link_to "Delete <<<", article_path(item), method: :delete, data: {confirm: "Are you shure?"} %></small>
