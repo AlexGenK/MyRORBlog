@@ -8,10 +8,10 @@ class ContactsController < ApplicationController
     @contact=Contact.new(contact_params)
 
     # если новое сообщение валидно, оно записывается, иначе снова вызывается форма ввода
-    if @contact.valid?
+    if @contact.valid? then
       @contact.save
     else
-      render action: 'new' 
+      render action: 'new'
     end
 	end
 

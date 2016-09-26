@@ -2,7 +2,7 @@
 class ArticlesController < ApplicationController
 
   # за исключением просмотра, все остальные действия требуют аутентификации пользователя
-  before_filter :authenticate_user!, :except => [:show, :index]
+  before_action :authenticate_user!, :except => [:show, :index]
 
 	def new
 	end
@@ -20,10 +20,10 @@ class ArticlesController < ApplicationController
     @article=Article.new(article_params)
 
     # если статью удается записать, то выводится записанная статья, иначе - снова форма создания статьи
-    if @article.save
+    if @article.save then
       redirect_to @article
     else
-      render action: 'new' 
+      render action: 'new'
     end
   end
 
