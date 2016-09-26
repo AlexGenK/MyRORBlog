@@ -2,7 +2,9 @@
 <h1>All articles</h1>
 
 <!-- ссылка на создание новой статьи -->
-<%= link_to ">>> Create new Article <<<", new_article_path %>
+<% if user_signed_in? %>
+	<%= link_to ">>> Create new Article <<<", new_article_path %>
+<% end %>
 <% @articles.each do |item| %>
 	<article>
 		<hr>
@@ -11,6 +13,8 @@
 		<p><%= simple_format(item.text) %></p>
 
 		<!-- ссылки на редактирование и удаление (с подтверждением) -->
-		<small><%= link_to ">>> Edit", edit_article_path(item) %> | <%= link_to "Delete <<<", article_path(item), method: :delete, data: {confirm: "Are you shure?"} %></small>
+		<% if user_signed_in? %>
+			<small><%= link_to ">>> Edit", edit_article_path(item) %> | <%= link_to "Delete <<<", article_path(item), method: :delete, data: {confirm: "Are you shure?"} %></small>
+		<% end %>
 	</article>	
 <% end %>
