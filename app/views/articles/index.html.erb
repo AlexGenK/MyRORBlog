@@ -13,7 +13,7 @@
 		<p><%= simple_format(item.text) %></p>
 
 		<!-- ссылки на редактирование и удаление (с подтверждением) -->
-		<% if user_signed_in? %>
+		<% if (user_signed_in?) && (current_user.username==item.author) %>
 			<small><%= link_to ">>> Edit", edit_article_path(item) %> | <%= link_to "Delete <<<", article_path(item), method: :delete, data: {confirm: "Are you shure?"} %></small>
 		<% end %>
 	</article>	

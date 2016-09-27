@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
  	def create
     @article=Article.new(article_params)
-
+    @article.author=current_user.username
     # если статью удается записать, то выводится записанная статья, иначе - снова форма создания статьи
     if @article.save then
       redirect_to @article
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
 
   # разрешение передачи парметров
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :author)
   end
 
 end

@@ -1,20 +1,24 @@
 <!-- редактирование статьи -->
 <h1>Edit article #<%= @article.id %></h1>
 
-<%= form_for @article do |f| %>
+<% if @article.author==current_user.username %>
+	<%= form_for @article do |f| %>
 
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
+		<p>
+			<%= f.label :title %><br>
+			<%= f.text_field :title %>
+		</p>
 
-	<p>
-		<%= f.label :text %><br>
-		<%= f.text_area :text %>
-	</p>
+		<p>
+			<%= f.label :text %><br>
+			<%= f.text_area :text %>
+		</p>
 
-	<p>
-		<%= f.submit %>
-	</p>
+		<p>
+			<%= f.submit %>
+		</p>
 
+	<% end %>
+<% else %>
+	<p>You can not edit the article. Please login.</p>
 <% end %>
