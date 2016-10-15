@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+
+  contact:
+    add_new_mess: "Add New Message"
