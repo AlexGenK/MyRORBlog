@@ -1,5 +1,4 @@
 require "rails_helper"
-require "session_helper"
 
 feature "Account Creation" do
 
